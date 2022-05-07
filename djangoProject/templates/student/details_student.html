@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %} Details of the student {{ student.first_name }} {{ student.last_name }}{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3"><br>
+                <div class="shadow-lg p-3 mb-5 bg-body rounded">
+                    <div class="card text-dark bg-info" style="max-width: 100%;">
+                        <div class="card-header">{{ student.first_name }} {{ student.last_name }}</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Details</h5>
+                            <p class="card-text">
+                                Age: {{ student.age }}<br>
+                                Is olympic: {% if is_olympic is True %} YES {% else %} NO {% endif %} <br>
+                                Average: {{ student.average }} <br>
+                                Gender: {{ student.gender|upper }} <br>
+                                Email: {{ student.email }} <br>
+                                Starting date: {{ student.start_date|date:"d-m-Y H:i" }} <br>
+                                Ending date: {{ student.end_date|date:"d-m-Y" }} <br>
+                                A short description: {{ student.description }} <br>
+                            </p>
+                        </div>
+                    <div class="card-footer text-center">
+                        <a href="{% url 'list_of_students' %}" class="btn btn-secondary">CANCEL</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block title %} List of Students {% endblock %}
+{% block content %}
+    {#    definirea unui tabel in html - bootstrap#}
+    <div class="container"><br><br>
+        <div class="shadow-lg p-3 mb-5 bg-body rounded">
+            <table class="table table-success table-hover">
+                <thead>
+                <tr>
+                    <th> First name</th>
+                    <th> Last name</th>
+                    <th> Professor</th>
+                    <th> Is olympic</th>
+                    <th> Gender</th>
+                    <th> Average</th>
+                    <th> Actions</th>
+
+                </tr>
+
+                </thead>
+                <tbody>
+                {% for student in all_students %}
+                    <tr>
+                        <td>{{ student.first_name }}</td>
+                        <td>{{ student.last_name }}</td>
+                        <td>{{ student.professor.first_name }} {{ student.professor.last_name }}</td>
+                        <td>
+                            {% if student.is_olympic is True %}
+                                Yes
+                            {% else %}
+                                No
+                            {% endif %}
+                        </td>
+                        <td>{{ student.gender }}</td>
+                        <td>{{ student.average }}</td>
+                        <td>
+                            <!-- Example single danger button -->
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Actions
+                              </button>
+                              <ul class="dropdown-menu">
+                                  {% if perms.student.change_student %}
+                                <li><a class="dropdown-item" href="{% url 'update_student' student.id %}">Update</a></li>
+                                  {% endif %}
+                                    {% if perms.student.delete_student %}
+                                <li><a class="dropdown-item" href="{% url 'delete_student' student.id %}">Delete</a></li>
+                                    {% endif %}
+                                    {% if perms.student.view_student %}
+                                <li><a class="dropdown-item" href="{% url 'details_student' student.id %}">Details</a></li>
+                                    {% endif %}
+
+                                    {% if perms.student.inactivate_student %}
+                                <li><button type="button" class="dropdown-item" data-bs-toggle="modal"
+                                    data-bs-target="#student_{{ student.id }}">
+                                Inactivate
+                                    </button></li>
+                                    {% endif %}
+                                    {% if perms.student.delete_modal %}
+                                  <li><button type="button" class="dropdown-item" data-bs-toggle="modal"
+                                    data-bs-target="#deletestudent_{{ student.id }}">
+                                        Delete student(modal)
+                                  </button></li>
+                                    {% endif %}
+                              </ul>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <!-- Modal -->
+                    <div class="modal fade" id="student_{{ student.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{ student.first_name }} {{ student.last_name }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you want to inactivate {{ student.first_name }} {{ student.last_name }} ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                    </button>
+                                    <a href="{% url 'inactivate_student' student.id %}" class="btn btn-outline-danger">Inactive</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                     <div class="modal fade" id="deletestudent_{{ student.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{ student.first_name }} {{ student.last_name }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you want to delete {{ student.first_name }} {{ student.last_name }} ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                    </button>
+                                    <a href="{% url 'delete_student_modal' student.id %}" class="btn btn-outline-danger">Delete student</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

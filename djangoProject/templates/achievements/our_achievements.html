@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block title %}Our Achievements{% endblock %}
+{% block content %}
+
+<div class="intro-text">
+<h3>Open the door to an exciting <br>
+new career through  Cluj Institute<br>
+of Technology (CIOT), helping<br>
+students change their lives<br>
+since 1986. Take control of<br>
+your future with hands-on<br>
+training in medical,scientific,<br>
+technical,informatics and astrophysics<br>
+    professions that will<br>
+leave you inspired and<br>
+prepared for the road ahead.<br>
+</h3>
+</div>
+
+
+
+<div class="container-images">
+
+  <div class="desc">
+    <div class="tittle">
+      <h1 class="judul">CIOT gallery</h1>
+      <p class="text">With a long history and a great prestige, Cluj Institute of technology is pround to show you our achievements!</p>
+    </div>
+
+    <div class="imgsrc">
+      <img src="../../static/images/cluj_institute.png" class="prev">
+    </div>
+  </div>
+
+  <div class="thumbnail">
+    <img src="../../static/images/institut_5.JPG" class="thumb">
+
+    <img src="../../static/images/institut_6.JPG" class="thumb">
+
+    <img src="../../static/images/institut_7.JPG" class="thumb">
+
+    <img src="../../static/images/robot_Department.JPG" class="thumb">
+
+    <img src="../../static/images/ubb.JPG" class="thumb">
+
+    <img src="../../static/images/robot_Department.JPG" class="thumb">
+    <img src="../../static/images/pic1.JPG" class="thumb">
+    <img src="../../static/images/pic2.JPG" class="thumb">
+    <img src="../../static/images/pic3.JPG" class="thumb">
+    <img src="../../static/images/pic4.JPG" class="thumb">
+    <img src="../../static/images/pic5.JPG" class="thumb">
+    <img src="../../static/images/pic9.JPG" class="thumb">
+
+  </div>
+</div>
+
+
+
+<div class="ending-text">
+<h3>CIOT people are eager to know how things work —<br>
+and inspired to make them work better. Our “mind<br>
+and hand” philosophy spurs real-world engagement,<br>
+and thanks to CIOT’s entrepreneurial culture, Greater<br>
+    Cluj’s innovation ecosystem brims with<br>
+    companies spun out from CIOT. We also embrace<br>
+collaborations with industry and government, as we<br>
+    seek compelling problems where CIOT innovation can<br>
+    make an impact.<br>
+
+
+</h3>
+</div>
+    <script>
+const container = document.querySelector(".container");
+const preview = document.querySelector(".prev");
+const active = document.querySelectorAll(".thumb");
+
+container.addEventListener("click", function (e) {
+  if (e.target.className == "thumb") {
+    preview.src = e.target.src;
+    preview.classList.add("effect");
+
+    setTimeout(function () {
+      preview.classList.remove("effect");
+    }, 100);
+
+    active.forEach(function (thumb) {
+      if (thumb.classList.contains("active")) {
+        thumb.classList.remove("active");
+      }
+    });
+
+    e.target.classList.add("active");
+  }
+});
+</script>
+
+{% endblock %}

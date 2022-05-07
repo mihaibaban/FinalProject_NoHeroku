@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}List of grades{% endblock %}
+
+{% block content %}
+    {% for key, value in all_grades.items %}
+
+<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+  <div class="card-header">{{ key }}</div>
+  <div class="card-body">
+        {% for m_key, m_value in value.items %}
+           <p class="card-text">Course: {{ m_key }} </p>
+               {% for grade in m_value %}
+                   <p> Grade: {{ grade }}</p>
+               {% endfor %}
+
+            {% endfor %}
+  </div>
+</div>
+{#        <p> Student name : {{ key }} </p>#}
+{#             {% for grade in value %}#}
+{#                <p> Grade : {{ grade }} </p>#}
+{#             {% endfor %}#}
+
+    {% endfor %}
+
+
+
+{% endblock %}

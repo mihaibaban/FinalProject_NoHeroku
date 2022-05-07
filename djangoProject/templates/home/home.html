@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}Home {% endblock %}
+
+{% block content %}
+    <div class="container-home-page">
+
+
+
+        <img src="../../static/images/home_page_wallpaper.png" alt="home page background" style="width:100%;">
+
+
+        <div class="bottom-left-home">
+            <img src="../../static/images/institute_of_Tech.png" alt="cluj institute logo" style="width:40%;">
+        </div>
+
+         <div class="centered-home">WELCOME TO CLUJ-NAPOCA'S FIRST INSTITUTE OF TECHNOLOGY DATABASE ADMINISTRATION PORTAL</div>
+         <div class="centered-home-1">Create, delete, manage and administrate our database <br> with professors and students</div>
+        <a href="{% url 'our_team' %}">
+        <button type="button" class="btn btn-secondary" id="meet-team" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Be ready to greet top of the edge professors!">
+  Meet the team
+</button>
+        </a>
+
+        <button type="button" id="contact_1" class="btn btn-lg btn-secondary" data-bs-toggle="popover" title="Hard to find us?" data-bs-content="Do not worry! We are just a click away! "><a href="{% url 'contact' %}">Contact</a></button>
+    </div>
+
+
+<div class="row-1">
+  <div class="column">
+    <img src="../../static/images/9.png" alt="img not avaible" width="200">
+
+  </div>
+  <div class="column">
+    <img src="../../static/images/1.png" alt="img not avaible" width="200">
+  </div>
+  <div class="column">
+    <img src="../../static/images/2.png" alt="img not avaible" width="200">
+
+  </div>
+<div class="column">
+    <img src="../../static/images/3.png" alt="img not avaible" width="200">
+
+  </div>
+<div class="column">
+    <img src="../../static/images/4.png" alt="img not avaible" width="200">
+
+  </div>
+<div class="column">
+    <img src="../../static/images/6.png" alt="img not avaible" width="200">
+
+  </div>
+</div>
+
+<style>
+{##meet-team {#}
+{#  position: absolute;#}
+{#  top: 39%;#}
+{#  left: 48%;#}
+{#  transform: translate(-50%, -50%);#}
+{#  font-size: large;#}
+{#}#}
+
+#contact_1{
+  position: absolute;
+  top: 52%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+}
+</style>
+
+{% endblock %}

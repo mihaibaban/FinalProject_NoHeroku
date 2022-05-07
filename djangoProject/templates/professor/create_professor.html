@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title  %} Create a new professor {% endblock %}
+{% block content %}
+   <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3"><br>
+            <div class="shadow-lg p-3 mb-5 bg-body rounded">
+                <form method="post">
+                    {# csrf token ofera protectie impotriva falsificariicererilor intre site/uri. #}
+                    {% csrf_token %}
+                    <div class="card-title">
+                        <h4 class="text-center">Add details about new professor</h4>
+                    </div>
+                    <div class="card-body">
+                        {{ form.as_p }}
+                    </div>
+                    <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-success">Save a new professor</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
