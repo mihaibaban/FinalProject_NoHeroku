@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/928ad79d-28b3-40ca-9c31-a0026767c18d/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/ciot-portal",
+    "appService.deploySubpath": "."
+}
