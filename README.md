@@ -16,6 +16,6 @@ Backend: Django + Python
 Frontend: HTML, CSS, JavaScript
 
 This web app is based on MVT (Model View Template) Django architecture.
-The database used for this project is SQLite3, and it is modeled by Django ORM.
+The database used for this project is SQLite, and it is modeled using the Django ORM.
 
 Link: http://ciot-portal.azurewebsites.net/
