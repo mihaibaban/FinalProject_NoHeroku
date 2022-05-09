@@ -36,6 +36,7 @@ CSRF_TRUSTED_ORIGINS = ["https://ciot-portal.azurewebsites.net"]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'crispy_forms',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -49,7 +50,7 @@ INSTALLED_APPS = [
     'achievements',
     'ourteam',
     'catalog',
-    'contact'
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -131,9 +132,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+# STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -145,7 +147,7 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' #smtp - simple mail transfer protocol:un protocol simplu care este folosit la transmiterea mesajelor in format electronic
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'testsdadjango@gmail.com'
