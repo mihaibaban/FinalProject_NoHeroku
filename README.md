@@ -1,4 +1,4 @@
-# FinalProject_NoHeroku
+# " Cluj - Institute of Technology " database administration portal
 
 Description:
 
